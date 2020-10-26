@@ -1,0 +1,130 @@
+ {% extends 'base.html' %}
+ {% load static %}
+ {% block body %}
+
+  <!-- END: header -->
+  <section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="page-title probootstrap-animate">
+              <div class="probootstrap-breadcrumbs">
+                <a href="/">Home</a><span>Properties</span>
+              </div>
+              <h1>Properties</h1>
+              <h3> Select your category </h3>
+				<ul>
+
+
+					{% for category in category_list %}
+
+					<li style="display: inline-block; "><a style="color: #fff;" href="{% url 'property:property_list_category' category.slug  %}" > {{category.category_name}} <span class="num-of-ads">({{category.total_properties}})</span></a></li>
+
+					{% endfor %}
+				</ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url({% static 'img/slider_1.jpg' %}); background-size: 100% 100%;" ></li>
+      <li style="background-image: url({% static 'img/slider_2.jpg' %}); background-size: 100% 100%;" ></li>
+      <li style="background-image: url({% static 'img/slider_3.jpg' %}); background-size: 100% 100%;" ></li>
+    </ul>
+  </section>
+  <!-- END: slider  -->
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row">
+
+        {% if property_list %}
+
+          {% for property in property_list %}
+            <div class="col-md-4 col-sm-6">
+              <div class="probootstrap-card probootstrap-listing">
+                <div class="probootstrap-card-media">
+                  <img src="{{property.image.url}}" class="img-responsive" alt="">
+                  <a href="#" class="probootstrap-love"><i class="icon-heart"></i></a>
+                </div>
+                <div class="probootstrap-card-text">
+                  <h2 class="probootstrap-card-heading"><a href="{% url 'property:property_detail' property.slug %}">{{property.name}}</a></h2>
+                  <div class="probootstrap-listing-location">
+                    <i class="icon-location2"></i> <span>{{property.adress}}</span>
+                  </div>
+                  <div class="probootstrap-listing-category for-sale"><span>for {{property.type}}</span></div>
+                  <div class="probootstrap-listing-price"><strong>{{property.price}}</strong> QAR / month</div>
+                </div>
+                <div class="probootstrap-card-extra">
+                  <ul>
+                    <li>
+                      Area
+                      <span>{{property.area}} m2</span>
+                    </li>
+                    <li>
+                      Rooms
+                      <span>{{property.rooms_number}}</span>
+                    </li>
+                    <li>
+                      Beds
+                      <span>{{property.beds_number}}</span>
+                    </li>
+                    <li>
+                      Baths
+                      <span>{{property.baths_number}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- END listing -->
+            </div>
+          {% endfor %}
+
+        {% else %}
+
+            <div class="col-md-10 col-sm-10">
+              <h2>No Property with this Adress or Type</h2>
+            </div>
+
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+   {% if property_list.has_other_pages %}
+
+                            <ul class="pagination pagination-sm">
+                                {% if property_list.has_previous %}
+                                    <li><a href="?page={{ property_list.previous_page_number }}">Prev</a></li>
+                                {% else %}
+                                    <li class="disabled"></li>
+                                {% endif %}
+
+                                {% for pages in property_list.paginator.page_range %}
+                                    {% if property_list.number == pages %}
+                                        <li><a href="#">{{pages}}</a></li>
+                                    {% else %}
+                                        <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                    {% endif %}
+
+                                {% endfor %}
+
+
+                                {% if property_list.has_next %}
+                                    <li><a href="?page={{ property_list.next_page_number }}">Next</a></li>
+                                {% else %}
+                                    <li class="disabled"></li>
+                                {% endif %}
+
+                            </ul>
+
+                        {% endif %}
+
+
+
+   {% endblock body %}

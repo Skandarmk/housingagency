@@ -1,0 +1,435 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+  <!-- END: header -->
+  <section class="probootstrap-slider flexslider">
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-6" >
+<div class="s009">
+      <form  action="{% url 'property:property_list' %}" method="get">
+        <div class="inner-form">
+          <div class="advance-search">
+            <span class="desc">Search Your Next Dream Home Here</span>
+            <div class="row">
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="q" required>
+                    <option placeholder="" value="">Location</option>
+                    {% for property in property_list_home %}
+                    <option>{{property.adress}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="purpose">
+                    <option placeholder="Property Type" value="">Property Type</option>
+	                <option value="commercial">Commercial</option>
+	                <option value="residential">Residential</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="property_type">
+                    <option placeholder="" value="">Property Status</option>
+                    <option value="rent">For Rent</option>
+                    <option value="sale">For Sale</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row second">
+              <div class="input-field">
+                <div class="input-select">
+                  <select  name="price_category">
+                    <option placeholder="" value="">Price Category</option>
+                    <option value="1">1000 --> 5000 QAR</option>
+                    <option value="2">5000 --> 10000 QAR</option>
+                    <option>10000 --> 15000 QAR</option>
+                    <option>15000 --> 20000 QAR</option>
+                    <option>20000 --> 30000 QAR</option>
+                    <option>30000 --> 40000 QAR</option>
+                    <option>40000 --> 50000 QAR</option>
+                    <option>50000 --> 75000 QAR</option>
+                    <option>75000 --> 100000 QAR</option>
+                    <option>100000 --> 125000 QAR</option>
+                    <option>125000 --> 150000 QAR</option>
+                    <option>150000 --> 200000 QAR</option>
+                    <option>200000 --> 10000000 QAR</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="furnished">
+                    <option placeholder="" value="">Furnished</option>
+                    <option>Full Furnished</option>
+                    <option>Semi Furnished</option>
+                    <option>Unfurnished</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="rooms">
+                    <option placeholder="" value="">Rooms</option>
+                    <option>2</option>
+                    <option>1</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row third">
+              <div class="input-field">
+                <div class="result-count">
+                </div>
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete">RESET</button>
+                  <button class="btn-search" type="submit">SEARCH</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="slides">
+      <li style="background-image: url({% static 'img/Qatar003.jfif' %}); background-size: 100% 100%;" ></li>
+      <li style="background-image: url({% static 'img/qqq.jpg' %}); background-size: 100% 100%;" ></li>
+      <li style="background-image: url({% static 'img/qaa1.jpg' %}); background-size: 100% 100%;" ></li>
+    </ul>
+  </section>
+  <!-- END: slider  -->
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="probootstrap-card text-center probootstrap-animate">
+            <div class="probootstrap-card-media svg-sm colored">
+              <img src="{% static 'img/flaticon/svg/001-prize.svg' %}" class="svg" alt="">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading">Award Winning Brooker</h2>
+              <p>Our Agents Award Winng Brookers, We give you the best service with a very professional team.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="probootstrap-card text-center probootstrap-animate">
+            <div class="probootstrap-card-media svg-sm colored">
+              <img src="{% static 'img/flaticon/svg/005-new.svg' %}" class="svg" alt="">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading">New Houses</h2>
+              <p>In Blue Black Propreties, New Houses and Appartements are posted everyday to make sure that you find your Dream House.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="probootstrap-card text-center  probootstrap-animate">
+            <div class="probootstrap-card-media svg-sm colored">
+              <img src="{% static 'img/flaticon/svg/006-coin.svg' %}" class="svg" alt="">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading">Affordable Houses</h2>
+              <p>In Our Company we offer for you New Houses with very good prices, We make sure that it deserve it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END: section -->
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Explore Our Neighborhoods</h2>
+      </div>
+      <div class="row probootstrap-gutter10">
+
+        {% for category in category_list|slice:":4" %}
+        <div class="col-md-6 col-sm-6">
+          <a href="{% url 'property:property_list'  %}" class="probootstrap-hover-overlay" >
+            <img src="media/{{category.category_image}}" class="img-responsive" >
+            <div class="probootstrap-text-overlay">
+              <h3>{{category.category_name}}</h3>
+              <p>{{category.property_count}} Properties</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+
+
+
+
+
+      </div>
+    </div>
+
+  </section>
+  <!-- END: section -->
+
+
+  <!-- END: section -->
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Featured Listing</h2>
+      </div>
+      <div class="row">
+      {% for property in property_list_home|slice:":6" %}
+
+        <div class="col-md-4 col-sm-6">
+          <div class="probootstrap-card probootstrap-listing">
+            <div class="probootstrap-card-media">
+              <img src="{{property.image.url}}" class="img-responsive" >
+              <a href="#" class="probootstrap-love"><i class="icon-heart"></i></a>
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading"><a href="{% url 'property:property_detail' property.slug %}">{{property}}</a></h2>
+              <div class="probootstrap-listing-location">
+                <i class="icon-location2"></i> <span>{{property.adress}}</span>
+              </div>
+              <div class="probootstrap-listing-category for-sale"><span>for {{property.type}}</span></div>
+              <div class="probootstrap-listing-price"><strong>{{property.price}}</strong> QAR / monthly</div>
+            </div>
+            <div class="probootstrap-card-extra">
+              <ul>
+                <li>
+                  Area
+                  <span>{{property.area}} m2</span>
+                </li>
+                <li>
+                  Rooms
+                  <span>{{property.rooms_number}}</span>
+                </li>
+                <li>
+                  Beds
+                  <span>{{property.beds_number}}</span>
+                </li>
+                <li>
+                  Baths
+                  <span>{{property.baths_number}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- END listing -->
+        </div>
+
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+    <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="probootstrap-card probootstrap-listing">
+                    <div class="probootstrap-card-media">
+                         <video name='demo' controls  width='100%' height='100%'>
+                             <source src="{% static 'img/video3.mp4' %}" type="video/mp4"></source>
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                 <div class="probootstrap-card probootstrap-listing">
+                    <div class="probootstrap-card-media">
+                <video name='demo' controls  width='100%' height='100%'>
+                    <source src="{% static 'img/video2.mp4' %}" type="video/mp4"></source>
+                </video>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                 <div class="probootstrap-card probootstrap-listing">
+                    <div class="probootstrap-card-media">
+                <video name='demo' controls  width='100%' height='100%'>
+                    <source src="{% static 'img/video44.mp4' %}" type="video/mp4"></source>
+                </video>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+    <section class="probootstrap-section probootstrap-bg" style="background-image: url({% static 'img/bbp.jpg' %});  background-size: 100% 100%; ">
+    <div class="container text-center probootstrap-animate" data-animate-effect="fadeIn">
+      <h2 class="heading">Best Home &amp; Properties</h2>
+      <p class="sub-heading">Feel free to discover and take a look to our Propreties, We Try to share the Best for you.</p>
+      <p><a href="https://www.youtube.com/channel/UCX0ttAqZokAfQ-ygljOQyFg" class="btn btn-primary mb10">Find out more</a></p>
+    </div>
+  </section>
+  <!-- END: section -->
+
+  <section class="probootstrap-half reverse">
+    <div class="image-wrap">
+      <div class="image" style="background-image: url({% static 'img/shamal.jpg' %});"></div>
+    </div>
+    <div class="text">
+      <p class="mb10 subtitle">Why Choose Us</p>
+      <h3 class="mt0 mb40">You Will Love Our Services</h3>
+      <p>Clients love us because we sell homes faster, rent out investment properties with minimum downtime, and make buying a new home simple. In short, we strive to provide a seamless, stress-free real estate experience.</p>
+      <p class="mb50">Blue Black properties has an amazing team culture, supported by a passionate leadership team.  Our management set out on their journey with a simple strategy: support agents to reach their full potential, so they can best help clients sell and rent their properties.</p>
+      <p><a href="#" class="btn btn-primary mb10">Find out more</a></p>
+    </div>
+  </section>
+
+
+
+   <section class="probootstrap-section">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Our Services</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+          <div class="service text-center">
+            <div class="icon"><i class="icon-list2"></i></div>
+            <h2 class="heading">Property Listing</h2>
+            <p> Blue Black Properties a new company based in Doha Qatar in the real estate brokerage market. We provide you a spacious and classy Propreties Listing.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+          <div class="service text-center">
+            <div class="icon"><i class="icon-power-cord"></i></div>
+            <h2 class="heading">Property Management</h2>
+            <p>Property management is more than coordinating tenancies and rental payments — it’s about helping you achieve your financial goals.</p>
+          </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+          <div class="service text-center">
+            <div class="icon"><i class="icon-price-tag2"></i></div>
+            <h2 class="heading">Renting Properties</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+        </div>
+        <div class="clearfix visible-lg-block visible-md-block"></div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+         <div class="service text-center">
+            <div class="icon"><i class="icon-direction"></i></div>
+            <h2 class="heading">Selling Properties</h2>
+            <p>Clients love us because we sell homes faster, rent out investment properties with minimum downtime, and make buying a new home simple.</p>
+          </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+          <div class="service text-center">
+            <div class="icon"><i class="icon-home3"></i></div>
+            <h2 class="heading">Brook A Property</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
+          <div class="service text-center">
+            <div class="icon"><i class="icon-magnifying-glass"></i></div>
+            <h2 class="heading">Search Property</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+       </div>
+        <div class="clearfix visible-lg-block visible-md-block"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- END: section -->
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Our Agents</h2>
+      </div>
+      <div class="row">
+        {% for agent in agent_list %}
+
+        <div class="col-md-3">
+          <div class="probootstrap-card probootstrap-person text-left">
+            <div class="probootstrap-card-media">
+              <img src="{{agent.image.url}}" class="img-responsive" alt="">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading mb0">{{agent}}</h2>
+              <p><small>{{agent.title}}</small></p>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+   <section class="probootstrap-section">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Our Partners</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="probootstrap-card probootstrap-person text-left">
+              <img src="{% static 'img/rbmon.png' %}" class="img-responsive" alt="">
+          </div>
+        </div>
+        <div class="col-md-2" style="padding-top: 25px;">
+          <div class="probootstrap-card probootstrap-person text-left">
+              <img src="{% static 'img/logo-2.svg' %}" class="img-responsive" alt="">
+          </div>
+        </div>
+        <div class="col-md-2">
+            <div class="probootstrap-card probootstrap-person text-left">
+              <img src="{% static 'img/oti.jpg' %}" class="img-responsive" alt="">
+          </div>
+        </div>
+        <div class="col-md-3" style="padding-top: 25px;">
+          <div class="probootstrap-card probootstrap-person text-left">
+              <img src="{% static 'img/damac-logo.svg' %}" class="img-responsive" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <script src="{% static 'js/extention/choices.js' %}"></script>
+    <script>
+      const customSelects = document.querySelectorAll("select");
+      const deleteBtn = document.getElementById('delete')
+      const choices = new Choices('select',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+        removeItemButton: true,
+      });
+      deleteBtn.addEventListener("click", function(e)
+      {
+        e.preventDefault()
+        const deleteAll = document.querySelectorAll('.choices__button')
+        for (let i = 0; i < deleteAll.length; i++)
+        {
+          deleteAll[i].click();
+        }
+      });
+
+    </script>
+
+  {% endblock body %}
